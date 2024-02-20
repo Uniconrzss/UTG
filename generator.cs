@@ -130,7 +130,7 @@ namespace Generator
                                             }
                                             if (!hasTileBeenUsed)
                                             {
-                                                avaliableTiles[x] = new Tile(tile.ttype, tile.depth, tile.maxDepth);
+                                                avaliableTiles[x] = new Tile(tile.tileID,tile.ttype, tile.depth, tile.maxDepth);
                                             }
                                             //DEBUG
                                             // Console.WriteLine($"Tiles array is now: ");
