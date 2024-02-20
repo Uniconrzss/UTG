@@ -6,6 +6,11 @@ namespace Generator
     {
         static void Main(string[] args)
         {
+            
+        }
+
+        static void test()
+        {
             //Test generator
             Generator gen = new Generator();
             Tile dirt = new Tile("#", 1, 15);
@@ -22,7 +27,7 @@ namespace Generator
 
             Structure stoneHouse = new Structure(stoneHouseTiles);
             Structure[] structures = {stoneHouse};
-            Tile[,] terrain = gen.Generate(100,49, tiles, structures, 1);
+            Tile[,] terrain = gen.Generate(100,49, tiles, structures, 1, 5);
 
             for (int i = 0; i < terrain.GetLength(0);i++)
             {
@@ -64,7 +69,7 @@ namespace Generator
 
     public class Generator
     {
-        public Tile[,] Generate(int mapx, int mapy, Tile[] tiles ,Structure[] structures, int structureGenerationChance)
+        public Tile[,] Generate(int mapx, int mapy, Tile[] tiles ,Structure[] structures, int structureGenerationChance, int blend)
         {
             Tile[,] terrain = new Tile[mapy,mapx];
             Random rand = new Random();
@@ -100,9 +105,9 @@ namespace Generator
                         {
                             //int generate = rand.Next(i,mapy);
                             //Console.WriteLine($"Generate is: {generate} and tile is {tile.depth} and {tile.maxDepth}");
-                            if (i >= tile.depth)//(generate >= tile.depth)
+                            if (i >= tile.depth - rand.Next(0, blend))//(generate >= tile.depth)
                             {
-                                if (i <= tile.maxDepth)//(generate <= tile.maxDepth)
+                                if (i <= tile.maxDepth + rand.Next(0, blend))//(generate <= tile.maxDepth)
                                 {
                                     for (int x = 0; x < avaliableTiles.Length; x++)
                                     {
