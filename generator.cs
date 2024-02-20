@@ -46,11 +46,14 @@ namespace Generator
         public int depth;
         public int maxDepth;
 
-        public Tile(string type, int tileDepth, int maxTileDepth)
+        public string tileID;
+
+        public Tile(string ttileID, string type, int tileDepth, int maxTileDepth)
         {
             ttype = type;
             depth = tileDepth;
             maxDepth = maxTileDepth;
+            tileID = ttileID;
         }
     }
 
@@ -119,7 +122,7 @@ namespace Generator
                                             {
                                                 if (avaliableTiles[p] != null)
                                                 {
-                                                    if (avaliableTiles[p].ttype == tile.ttype)
+                                                    if (avaliableTiles[p].tileID == tile.tileID)
                                                     {
                                                         hasTileBeenUsed = true;
                                                     }

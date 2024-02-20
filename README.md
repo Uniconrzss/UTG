@@ -4,13 +4,13 @@ Features:
   - Structure Class
   - Generator Class
 
-#Tile Class
+# Tile Class
 The Tile Class is for creating tiles that will be generated.
-Usage: ```Tile dirt = new Tile("#", 1, 15);```
-  *  Tile(tile type, minimum depth, maximum depth).
+Usage: ```Tile dirt = new Tile("dirt","#", 1, 15);```
+  *  Tile(tile id, tile type, minimum depth, maximum depth).
   *  The tile type does not need to be a single character since the generator returns an array of tiles, but in my current code to test the generator it is used as a "tile texture".
 
-#Structure Class
+# Structure Class
 The Structure Class is for creating structures that will be generated on the map (Currently very primitive)
 Usage: ```Structure house = new Structure({
   {air, air, wood, air, air},
@@ -22,7 +22,7 @@ Usage: ```Structure house = new Structure({
   *  The "wood" and "air" tiles are used as examples, you would have to create your own tiles.
   *  Structure(2D Array of the structure in tiles[]).
 
-#Generator Class
+# Generator Class
 This is the class that does the heavy lifting.
 Usage: ```
 Generator gen = new Generator();
@@ -36,18 +36,18 @@ Returns: 2D Tile Array.
   -  `structureGenerationChance` - Chance of a structure generating (in percentage)
   -  `blend` - How much the maximum and minimum depth of a tile can deviate (Often helps the map look more "natural").
 
-#Tips for generating (Since the generator is not perfect yet)
+# Tips for generating (Since the generator is not perfect yet)
   *  You can create many tiles that operate in the same area if you want a higher percentage chance of them spawning in that specific area.
      Example:
      ```
      Generator gen = new Generator();
-     Tile dirt = new Tile("#", 1, 15);
-     Tile stone = new Tile("=", 5,50);
+     Tile dirt = new Tile("dirt","#", 1, 15);
+     Tile stone = new Tile("stone","=", 5,50);
 
      //Three air Tile objects here
-     Tile air = new Tile(" ",0, 10);
-     Tile air1 = new Tile(" ",0, 10); 
-     Tile air2 = new Tile(" ",0, 10);
+     Tile air = new Tile("air1"," ",0, 10);
+     Tile air1 = new Tile("air2"," ",0, 10); 
+     Tile air2 = new Tile("air3"," ",0, 10);
      
      Tile[] tiles = {dirt, stone, air, air1, air2};
 
