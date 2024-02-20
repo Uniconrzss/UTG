@@ -85,7 +85,7 @@ namespace Generator
                     if (structureGenerate < structureGenerationChance)
                     {
                         //Pick random structure
-                        int structureGeneratePick = rand.Next(0, structures.Length-1);
+                        int structureGeneratePick = rand.Next(0, structures.Length);
                         for (int iS = 0; iS < structures[structureGeneratePick].structureTiles.GetLength(0); iS++)
                         {
                             Console.WriteLine("First For Loop");
